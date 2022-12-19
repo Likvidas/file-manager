@@ -1,8 +1,8 @@
-import { userName } from '../helpers/get-user-name.js';
-import { printOutput } from '../helpers/print-output.js';
+import { printDirectory, printOutput, userName } from '../helpers/helpers.js';
 
 export const greetUser = () => {
   const greetingMessage = `Welcome to the File Manager, ${userName}!`;
 
   printOutput(greetingMessage);
+  printDirectory();
 };

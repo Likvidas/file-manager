@@ -1,8 +1,7 @@
-import { userName } from '../helpers/get-user-name.js';
-import { printOutput } from '../helpers/print-output.js';
-import { readline } from '../helpers/readline.js';
+import { printOutput, userName } from '../../helpers/helpers.js';
+import { readline } from '../../readline/readline.js';
 
-export const quitterApp = () => {
+export const handleExitApp = () => {
   const byeMessage = `Thank you for using File Manager, ${userName}, goodbye!`;
 
   readline.on('SIGINT', () => {
