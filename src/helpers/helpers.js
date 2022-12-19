@@ -1,7 +1,7 @@
-import { argv } from 'process';
-import { readline } from '../readline/readline.js';
+import { argv, stdout } from 'process';
+import { stat } from 'fs/promises';
 import { homedir } from 'os';
-import { stdout } from 'process';
+import { readline } from '../readline/readline.js';
 
 export const printOutput = (message) => stdout.write(message + '\n');
 
@@ -31,3 +31,8 @@ export const workDirectory = new CurrentWorkDirectory();
 export const printDirectory = () => printOutput(`You are currently in ${workDirectory.getCWD()}`);
 
 export const printError = () => printOutput('Operation failed');
+
+export const checkOfExistence = (path) =>
+  stat(path)
+    .then(() => true)
+    .catch(() => false);

@@ -1,3 +1,4 @@
+import { handleAdd } from '../handlers-command/add/add.js';
 import { handleCat } from '../handlers-command/cat/cat.js';
 import { handleCd } from '../handlers-command/cd/cd.js';
 import { exitApp } from '../handlers-command/exit/exit.js';
@@ -25,6 +26,9 @@ export const parseCommand = async (command) => {
       return;
     case 'cat':
       await handleCat(commandArgs);
+      return;
+    case 'add':
+      await handleAdd(commandArgs);
       return;
     default:
       printOutput('Invalid input');
