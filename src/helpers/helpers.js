@@ -29,3 +29,5 @@ class CurrentWorkDirectory {
 export const workDirectory = new CurrentWorkDirectory();
 
 export const printDirectory = () => printOutput(`You are currently in ${workDirectory.getCWD()}`);
+
+export const printError = () => printOutput('Operation failed');

@@ -4,12 +4,12 @@ import { readline } from './src/readline/readline.js';
 import { parseCommand } from './src/parse-command/parse-command.js';
 import { printDirectory } from './src/helpers/helpers.js';
 
-const initApp = async () => {
+const initApp = () => {
   greetUser();
   handleExitApp();
 
-  readline.on('line', (inputData) => {
-    parseCommand(inputData);
+  readline.on('line', async (inputData) => {
+    await parseCommand(inputData);
     printDirectory();
   });
 };
