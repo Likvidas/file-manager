@@ -5,6 +5,8 @@ import { handleCp } from '../handlers-command/cp/cp.js';
 import { exitApp } from '../handlers-command/exit/exit.js';
 import { handleLs } from '../handlers-command/ls/ls.js';
 import { handleMv } from '../handlers-command/mv/mv.js';
+import { handleOs } from '../handlers-command/os/os.js';
+import { handleRm } from '../handlers-command/rm/rm.js';
 import { handleRn } from '../handlers-command/rn/rn.js';
 import { handleUp } from '../handlers-command/up/up.js';
 import { printOutput } from '../helpers/helpers.js';
@@ -41,6 +43,12 @@ export const parseCommand = async (command) => {
       return;
     case 'mv':
       await handleMv(commandArgs);
+      return;
+    case 'rm':
+      await handleRm(commandArgs);
+      return;
+    case 'os':
+      await handleOs(commandArgs);
       return;
     default:
       printOutput('Invalid input');
