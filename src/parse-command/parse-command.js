@@ -1,8 +1,11 @@
 import { handleAdd } from '../handlers-command/add/add.js';
 import { handleCat } from '../handlers-command/cat/cat.js';
 import { handleCd } from '../handlers-command/cd/cd.js';
+import { handleCompress } from '../handlers-command/compress/compress.js';
 import { handleCp } from '../handlers-command/cp/cp.js';
+import { handleDecompress } from '../handlers-command/decompress/decompress.js';
 import { exitApp } from '../handlers-command/exit/exit.js';
+import { handleHash } from '../handlers-command/hash/hash.js';
 import { handleLs } from '../handlers-command/ls/ls.js';
 import { handleMv } from '../handlers-command/mv/mv.js';
 import { handleOs } from '../handlers-command/os/os.js';
@@ -49,6 +52,15 @@ export const parseCommand = async (command) => {
       return;
     case 'os':
       await handleOs(commandArgs);
+      return;
+    case 'hash':
+      await handleHash(commandArgs);
+      return;
+    case 'compress':
+      await handleCompress(commandArgs);
+      return;
+    case 'decompress':
+      await handleDecompress(commandArgs);
       return;
     default:
       printOutput('Invalid input');
